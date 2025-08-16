@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Carteirinha Digital</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f0f2f5, #d9e6f2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .card-container {
+      perspective: 1200px;
+    }
+
+    .card {
+      width: 500px;
+      height: 320px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.9s;
+      cursor: pointer;
+    }
+
+    .card.is-flipped {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      backface-visibility: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      background: white;
+      border: 2px solid #0077ff;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    /* Frente */
+    .front {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      grid-gap: 15px;
+      align-items: center;
+    }
+    .foto {
+      width: 100px;
+      height: 130px;
+      border: 2px solid #0077ff;
+      border-radius: 5px;
+      background: #eee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.8em;
+      color: #666;
+    }
+    .dados {
+      font-size: 0.95em;
+      color: #111;
+    }
+    .dados h2 {
+      margin: 0 0 10px 0;
+      font-size: 1.2em;
+      color: #0077ff;
+    }
+    .dados p {
+      margin: 4px 0;
+    }
+
+    /* Verso */
+    .verso {
+      transform: rotateY(180deg);
+      font-size: 0.85em;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .verso h3 {
+      text-align: center;
+      color: #0077ff;
+      margin-top: 5px;
+    }
+    .assinatura {
+      text-align: right;
+      font-style: italic;
+      margin-top: 20px;
+    }
+
+    /* Instrução para virar */
+    .hint {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 0.85em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card-container">
+    <div class="card" id="carteira">
+
+      <!-- Frente -->
+      <div class="card-face front">
+        <div class="foto">FOTO 3x4</div>
+        <div class="dados">
+          <h2>Instituição Exemplo</h2>
+          <p><b>Nome:</b> Fulano de Tal</p>
+          <p><b>CPF:</b> 000.000.000-00</p>
+          <p><b>RG:</b> 0.000.000</p>
+          <p><b>Nascimento:</b> 01/01/2000</p>
+          <p><b>Matrícula:</b> 123456</p>
+          <p><b>Curso:</b> Técnico em Informática</p>
+        </div>
+      </div>
+
+      <!-- Verso -->
+      <div class="card-face verso">
+        <div>
+          <h3>Validade: 30/09/2026</h3>
+          <p><b>Lei Estadual nº 11052/1993</b><br>
+          Regulamenta a meia-entrada para estudantes regularmente matriculados em estabelecimentos de ensino de Minas Gerais.</p>
+
+          <p><b>Lei Municipal nº 1461/2001</b><br>
+          União dos Estudantes reconhecida de utilidade pública, conforme decretos vigentes.</p>
+        </div>
+
+        <div class="assinatura">
+          <p>__________________________</p>
+          <p>Diretor Responsável</p>
+        </div>
+      </div>
+    </div>
+    <div class="hint">Clique na carteirinha para virar</div>
+  </div>
+
+  <script>
+    const card = document.getElementById("carteira");
+    card.addEventListener("click", () => {
+      card.classList.toggle("is-flipped");
+    });
+  </script>
+
+</body>
+</html>
