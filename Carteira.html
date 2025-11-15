@@ -1,154 +1,112 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Carteirinha Digital</title>
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Universidade Próton — Identidade Estudantil</title>
+
+<style>
     body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #f0f2f5, #d9e6f2);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f0f4f8;
     }
 
-    .card-container {
-      perspective: 1200px;
+    /* ---------- TOPO DO SITE ---------- */
+    header {
+        background: #0a6db4;
+        color: white;
+        padding: 25px 0;
+        text-align: center;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
 
-    .card {
-      width: 500px;
-      height: 320px;
-      position: relative;
-      transform-style: preserve-3d;
-      transition: transform 0.9s;
-      cursor: pointer;
+    header h1 {
+        margin: 0;
+        font-size: 32px;
+        letter-spacing: 1px;
     }
 
-    .card.is-flipped {
-      transform: rotateY(180deg);
+    nav {
+        margin-top: 10px;
     }
 
-    .card-face {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 15px;
-      backface-visibility: hidden;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-      background: white;
-      border: 2px solid #0077ff;
-      padding: 20px;
-      box-sizing: border-box;
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 16px;
+        font-weight: bold;
     }
 
-    /* Frente */
-    .front {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      grid-gap: 15px;
-      align-items: center;
-    }
-    .foto {
-      width: 100px;
-      height: 130px;
-      border: 2px solid #0077ff;
-      border-radius: 5px;
-      background: #eee;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 0.8em;
-      color: #666;
-    }
-    .dados {
-      font-size: 0.95em;
-      color: #111;
-    }
-    .dados h2 {
-      margin: 0 0 10px 0;
-      font-size: 1.2em;
-      color: #0077ff;
-    }
-    .dados p {
-      margin: 4px 0;
+    nav a:hover {
+        text-decoration: underline;
     }
 
-    /* Verso */
-    .verso {
-      transform: rotateY(180deg);
-      font-size: 0.85em;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .verso h3 {
-      text-align: center;
-      color: #0077ff;
-      margin-top: 5px;
-    }
-    .assinatura {
-      text-align: right;
-      font-style: italic;
-      margin-top: 20px;
+    /* ---------- CONTEÚDO PRINCIPAL ---------- */
+    .container {
+        max-width: 900px;
+        margin: 60px auto;
+        background: white;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+        text-align: center;
     }
 
-    /* Instrução para virar */
-    .hint {
-      text-align: center;
-      margin-top: 10px;
-      font-size: 0.85em;
-      color: #555;
+    .container h2 {
+        margin-bottom: 20px;
+        font-size: 26px;
     }
-  </style>
+
+    .card-img {
+        width: 100%;
+        max-width: 500px;
+        border-radius: 10px;
+        box-shadow: 0 0 12px rgba(0,0,0,0.25);
+        transition: 0.3s;
+    }
+
+    .card-img:hover {
+        transform: scale(1.03);
+    }
+
+    /* ---------- RODAPÉ ---------- */
+    footer {
+        background: #083b66;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        margin-top: 60px;
+    }
+</style>
+
 </head>
+
 <body>
 
-  <div class="card-container">
-    <div class="card" id="carteira">
+<header>
+    <h1>Universidade Próton</h1>
+    <nav>
+        <a href="#">Início</a>
+        <a href="#">Cursos</a>
+        <a href="#">Estudantes</a>
+        <a href="#">Secretaria</a>
+        <a href="#">Contato</a>
+    </nav>
+</header>
 
-      <!-- Frente -->
-      <div class="card-face front">
-        <div class="foto">FOTO 3x4</div>
-        <div class="dados">
-          <h2>Instituição Exemplo</h2>
-          <p><b>Nome:</b> Fulano de Tal</p>
-          <p><b>CPF:</b> 000.000.000-00</p>
-          <p><b>RG:</b> 0.000.000</p>
-          <p><b>Nascimento:</b> 01/01/2000</p>
-          <p><b>Matrícula:</b> 123456</p>
-          <p><b>Curso:</b> Técnico em Informática</p>
-        </div>
-      </div>
+<div class="container">
+    <h2>Identidade Estudantil</h2>
+    <p>Carteira oficial do aluno — válida em todo território nacional.</p>
 
-      <!-- Verso -->
-      <div class="card-face verso">
-        <div>
-          <h3>Validade: 30/09/2026</h3>
-          <p><b>Lei Estadual nº 11052/1993</b><br>
-          Regulamenta a meia-entrada para estudantes regularmente matriculados em estabelecimentos de ensino de Minas Gerais.</p>
+    <!-- SUA IMAGEM AQUI -->
+    <img src="carteirinha.jpg" class="card-img" alt="Carteira estudantil">
+</div>
 
-          <p><b>Lei Municipal nº 1461/2001</b><br>
-          União dos Estudantes reconhecida de utilidade pública, conforme decretos vigentes.</p>
-        </div>
-
-        <div class="assinatura">
-          <p>__________________________</p>
-          <p>Diretor Responsável</p>
-        </div>
-      </div>
-    </div>
-    <div class="hint">Clique na carteirinha para virar</div>
-  </div>
-
-  <script>
-    const card = document.getElementById("carteira");
-    card.addEventListener("click", () => {
-      card.classList.toggle("is-flipped");
-    });
-  </script>
+<footer>
+    © 2025 Universidade Próton — Todos os direitos reservados
+</footer>
 
 </body>
 </html>
